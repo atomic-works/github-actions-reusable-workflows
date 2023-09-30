@@ -9,8 +9,8 @@ on:
       tag:
         required: true
         type: string
-        
-Publish-Docker-Image:
+jobs:
+  deploy-docker-image:
     needs: Create-Release
     permissions:
       packages: write
