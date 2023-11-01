@@ -9,9 +9,11 @@ on:
       tag:
         required: true
         type: string
+      image-name:
+        required: true
+        type: string
 jobs:
   deploy-docker-image:
-    needs: Create-Release
     permissions:
       packages: write
     runs-on: ${{ inputs.ubuntu-version }}
@@ -27,4 +29,4 @@ jobs:
           context: .
           file: ./alpine-linux.dockerfile
           push: true
-          tags: ghcr.io/atomic-works/alpine-linux:development, ghcr.io/atomic-works/alpine-linux:${{ inputs.tag }}
+          tags: ghcr.io/atomic-works/${{ inputs.image-name }}:development, ghcr.io/atomic-works/${{ inputs.image-name }}:${{ inputs.tag }}
