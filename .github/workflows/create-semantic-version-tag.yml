@@ -9,10 +9,10 @@ on:
       bump-type:
         required: true
         type: string
-      GPG-configuration-email:
+      git-configuration-email:
         required: true
         type: string
-      GPG-configuration-name:
+      git-configuration-name:
         required: true
         type: string
     secrets:
@@ -65,8 +65,8 @@ jobs:
         GPG_KEY: ${{ secrets.GPG-key }}
     - name: Setup git
       run: |
-        git config --local user.email "${{ inputs.GPG-configuration-email }}"
-        git config --local user.name "${{ inputs.GPG-configuration-name }}"
+        git config --local user.email "${{ inputs.git-configuration-email }}"
+        git config --local user.name "${{ inputs.git-configuration-name }}"
         git config --local user.signingkey "$GPG_KEY_ID"
         git config --local tag.gpgsign true
       env:
