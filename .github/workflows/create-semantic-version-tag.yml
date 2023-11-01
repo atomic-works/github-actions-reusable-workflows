@@ -18,10 +18,8 @@ on:
     secrets:
       GPG-key:
         required: true
-        type: string
       GPG-key-ID:
         required: true
-        type: string
     outputs:
       tag:
         description: "The tag created for the current commit."
